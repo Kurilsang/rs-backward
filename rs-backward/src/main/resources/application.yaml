@@ -1,0 +1,11 @@
+server:
+  port: 9020
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${rs.db.host}:3306/rs?allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&characterencoding=utf8mb4&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
