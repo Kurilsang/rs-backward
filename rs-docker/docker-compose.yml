@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: rs-mysql
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: rs
+    ports:
+      - "3307:3306"
+    networks:
+      - rs-net
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
+    
+
+  java-app:
+    build: 
+        context: .
+        dockerfile: Dockerfile
+    container_name: rs-demo
+    ports:
+      - "9020:9020"
+    networks:
+      - rs-net
+    depends_on:
+      - mysql
+
+networks:
+  rs-net:
+    name: rs
