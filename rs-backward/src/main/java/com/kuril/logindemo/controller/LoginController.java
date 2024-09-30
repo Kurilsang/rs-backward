@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-public class LoginController
+public class LoginController extends test
 {
  @Autowired
  private AccountService accountService;
@@ -51,7 +51,7 @@ public class LoginController
    }
    else
    {
-    return Result.error("username can be used");
+    return Result.success("username can be used");
    }
   }
   else if(method==1)

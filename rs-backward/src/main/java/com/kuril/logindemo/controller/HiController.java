@@ -1,11 +1,12 @@
 package com.kuril.logindemo.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HiController {
+public class HiController extends test {
     @GetMapping("/hi")
     public String hi() {
         return "hi";

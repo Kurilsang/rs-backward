@@ -3,9 +3,22 @@ server:
 
 spring:
   profiles:
-    active: dev
+    active: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${rs.db.host}:3306/rs?allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&characterencoding=utf8mb4&zeroDateTimeBehavior=convertToNull
     username: root
     password: 123456
+
+  ssl:
+    key-store: classpath:kuril.site.pfx
+    key-store-password: n5pep5ry64
+    key-store-type: PKCS12 # pfx 类型的证书对应是 PKCS12
+    enabled: true
+    client-auth: none
+#  web:
+#    cors:
+#      allow-credentials: true
+#      allowed-origins: "*"
+#      allowed-methods: "GET,POST,PUT,DELETE"
+#      allowed-headers: "*"
