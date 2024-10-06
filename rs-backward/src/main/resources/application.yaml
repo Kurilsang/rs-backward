@@ -1,14 +1,19 @@
+#两处需要修改（部署），active和配置文件里的minio
 server:
   port: 9020
 
 spring:
   profiles:
-    active: local
+    active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${rs.db.host}:3306/rs?allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&characterencoding=utf8mb4&zeroDateTimeBehavior=convertToNull
     username: root
     password: 123456
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 50MB
 
   ssl:
     key-store: classpath:kuril.site.pfx
@@ -16,6 +21,14 @@ spring:
     key-store-type: PKCS12 # pfx 类型的证书对应是 PKCS12
     enabled: true
     client-auth: none
+
+my:
+  minio:
+    access-key: mQMHpw07X242ULF022q3
+    secret-key: qGlFfiUEXYG8myvQ3fc0VzPsa6eW4xCxqPeeBmmH
+    ip_addr: http://kuril.site:9000
+    bucketName: public
+    filePath: /images/head/
 #  web:
 #    cors:
 #      allow-credentials: true

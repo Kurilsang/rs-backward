@@ -16,6 +16,8 @@ public class Account {
     private Integer id;
     private String username;
     private String password;
+    private String nickname;
+    private String header;
     private Integer salt;
     private Integer role;
     private LocalDateTime createTime;
