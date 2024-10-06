@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>File Upload Example</title>
+</head>
+<body>
+
+<!-- 文件选择输入 -->
+<input type="file" id="fileInput" />
+
+<!-- 提交按钮 -->
+<button id="uploadButton">上传文件</button>
+
+<img src="./" id="previewImage" style="max-width: 500px; max-height: 500px;">
+<!-- 引入Axios库 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    document.getElementById('uploadButton').addEventListener('click', function() {
+    var previewImage = document.getElementById('previewImage');
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0]; // 获取选中的文件
+
+    if (file) {
+        // 创建FormData对象
+        var formData = new FormData();
+        formData.append('image', file); // 添加文件到表单数据中
+
+        // 使用Axios发送POST请求
+        axios.post('http://localhost:9020/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            console.log('文件上传成功', response);
+            previewImage.src = response.data.data; // 更新预览图片的src属性
+
+        })
+        .catch(function(error) {
+            console.error('文件上传失败', error);
+        });
+    } else {
+        alert('请选择一个文件');
+    }
+});
+</script>
+</body>
+</html>
