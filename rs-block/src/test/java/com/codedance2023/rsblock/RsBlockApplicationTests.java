@@ -1,4 +1,4 @@
-package com.chenpihuangliang.rsblock;
+package com.codedance2023.rsblock;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
