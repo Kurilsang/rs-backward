@@ -1,6 +1,7 @@
 spring:
   application:
-    name: rs-block
+    name:
+      rs-block
   #    数据库连信息
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,4 +21,3 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #    封装对象时下划线自动转驼峰命名
     map-underscore-to-camel-case: true
-
