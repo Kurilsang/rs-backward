@@ -22,6 +22,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void accountAdd(Account account) {
+        if(account.getNickname()==null)
+        {
+            account.setNickname("小明");
+        }
         account.setCreateTime(LocalDateTime.now());
         account.setUpdateTime(LocalDateTime.now());
         accountMapper.insert(account);

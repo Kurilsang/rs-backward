@@ -21,16 +21,16 @@ public class LoginController extends test
  @PostMapping("/login")
  public Result login(@RequestBody Account account)
  {
-  log.info("登录{}",account);
+  log.info("登录表单信息{}",account);
   Account a = accountService.login(account);
   if(a!=null)
   {
    // 查询到了
    Map<String,Object> map = new HashMap<>();
    map.put("id",a.getId());
-   map.put("username",a.getUsername());
-   map.put("password",a.getPassword());
    map.put("role",a.getRole());
+   map.put("header",a.getHeader());
+   map.put("nickname",a.getNickname());
    String jwt = JWTUtitls.generateToken(map);
    return Result.success(jwt);
   }

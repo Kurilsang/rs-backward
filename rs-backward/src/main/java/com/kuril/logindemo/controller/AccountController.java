@@ -38,12 +38,7 @@ public class AccountController extends  test{
         accountService.updateById(account);
         return Result.success();
     }
-    // @DeleteMapping("/depts/{id}")
-// public Result deleteDept(@PathVariable int id) {
-//  log.info("deleteDept:{}",id);
-//  accountService.accountDeleteById(id);
-//  return Result.success();
-// }
+
     @DeleteMapping("/delete/{ids}")
     public Result delByIds(@PathVariable List<Integer> ids)
     {

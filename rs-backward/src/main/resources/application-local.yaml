@@ -1,4 +1,11 @@
 rs:
   db:
-    host: localhost # 修改为你自己的虚拟机IP地址
-    pw: 123456 # 修改为docker中的MySQL密码
+    host: localhost:3306 # 修改为你自己的虚拟机IP地址
+    username: root
+    password: 123456
+  minio:
+    access-key: mQMHpw07X242ULF022q3
+    secret-key: qGlFfiUEXYG8myvQ3fc0VzPsa6eW4xCxqPeeBmmH
+    ip_addr: http://kuril.site:9000
+    bucketName: public
+    filePath: /images/head/
