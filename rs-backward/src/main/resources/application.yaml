@@ -4,7 +4,7 @@ server:
 
 spring:
   profiles:
-    active: local
+    active: build
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${rs.db.host}/rs?allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true&characterencoding=utf8mb4&zeroDateTimeBehavior=convertToNull
